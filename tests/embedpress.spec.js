@@ -22,10 +22,10 @@ test('Check for Fatal Error on EmbedPress', async ({ page }) => {
       const fatalError2 = await page.getByText('There has been a critical error on this website.').isVisible().catch(() => false);
 
       if (fatalError1 || fatalError2) {
-        console.log(`URL: ${url} - ❌ Fatal Error`);
+        console.log(`❌ Fatal Error - ${url}`);
         test.info().annotations.push({ type: 'End Result', description: `URL: ${url} - ❌ Fatal Error` });
       } else {
-        console.log(`URL: ${url} - ✅ Page loaded properly`);
+        console.log(`✅ Page loaded properly - ${url}`);
         test.info().annotations.push({ type: 'End Result', description: `URL: ${url} - ✅ Page loaded properly` });
       }
     });

@@ -104,11 +104,11 @@ const urls = [
 ]
 
 test('Essential Addons Fatal Error Check', async ({ page }) => {
-    test.setTimeout(0); // Disables the timeout
+
+    // Disables the timeout
+    test.setTimeout(0);
 
     for (const url of urls) {
-
-        // await test.step(`Checking url-  ${url}`, async () => {
         await page.goto(url);
 
         // Fatal Error Message Check 
@@ -116,15 +116,10 @@ test('Essential Addons Fatal Error Check', async ({ page }) => {
         const fatalError2 = await page.getByText('There has been a critical error on this website.').isVisible().catch(() => false);
 
         if (fatalError1 || fatalError2) {
-
-            console.log(`URL: ${url} - ❌ Fatal Error`);
-
+            console.log(`❌ Fatal Error - ${url}`);
         } else {
-
-            console.log(`URL: ${url} - ✅ Page loaded properly`);
-
+            console.log(`✅ Page loaded properly - ${url}`);
         }
-        // })
 
     }
 
