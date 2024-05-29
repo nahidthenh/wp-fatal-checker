@@ -6,7 +6,9 @@ const urls = [
   'https://embedpress.qcheck.site/classic-youtube/',
   'https://embedpress.qcheck.site/elementor-youtube/',
   'https://embedpress.qcheck.site/wp-admin/',
-  'https://sp.qcheck.site/'
+  'https://sp.qcheck.site/',
+  'https://ea.qcheck.site/advanced-accordion',
+
   // Add more URLs to this list
 ];
 
@@ -20,10 +22,10 @@ test('Check for Fatal Error on EmbedPress', async ({ page }) => {
       const fatalError2 = await page.getByText('There has been a critical error on this website.').isVisible().catch(() => false);
 
       if (fatalError1 || fatalError2) {
-        console.log(`URL: ${url} - Fatal Error`);
+        console.log(`URL: ${url} - ❌ Fatal Error`);
         test.info().annotations.push({ type: 'End Result', description: `URL: ${url} - ❌ Fatal Error` });
       } else {
-        console.log(`URL: ${url} - Page loaded properly`);
+        console.log(`URL: ${url} - ✅ Page loaded properly`);
         test.info().annotations.push({ type: 'End Result', description: `URL: ${url} - ✅ Page loaded properly` });
       }
     });
