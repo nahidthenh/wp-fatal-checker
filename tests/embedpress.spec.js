@@ -31,6 +31,3 @@ test('Check for Fatal Error on EmbedPress', async ({ page }) => {
     });
   }
 });
-
-
-
