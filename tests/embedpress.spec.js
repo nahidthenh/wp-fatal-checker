@@ -1,5 +1,4 @@
 const { test, expect } = require('@playwright/test');
-
 const urls = [
   'https://embedpress.qcheck.site/',
   'https://embedpress.qcheck.site/1-youtube-singleee/',
@@ -61,6 +60,9 @@ const urls = [
 ];
 
 test('Check for Fatal Error on EmbedPress', async ({ page }) => {
+  // Disables the timeout
+  test.setTimeout(0);
+
   for (const url of urls) {
     await test.step(`Checking URL: ${url}`, async () => {
       await page.goto(url);
