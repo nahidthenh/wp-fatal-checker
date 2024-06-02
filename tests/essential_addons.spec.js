@@ -20,6 +20,9 @@ const urls = [
     'https://ea.qcheck.site/tooltip',
     'https://ea.qcheck.site/sticky-video',
     'https://ea.qcheck.site/testimonials',
+
+    'https://embedpress.qcheck.site/elementor-youtube/',
+
     'https://ea.qcheck.site/protected-content',
     'https://ea.qcheck.site/offcanvas',
     'https://ea.qcheck.site/advanced-menu',
