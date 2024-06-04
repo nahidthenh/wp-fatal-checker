@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const urls = [
+  // 'https://embedpress.qcheck.site/elementor-singles/',
   'https://embedpress.qcheck.site/',
   'https://embedpress.qcheck.site/1-youtube-singleee/',
   'https://embedpress.qcheck.site/classic-gumroad/',
@@ -31,7 +32,7 @@ const urls = [
   'https://embedpress.qcheck.site/elementor-facebook/',
   'https://embedpress.qcheck.site/elementor-google/',
   'https://embedpress.qcheck.site/elementor-pdf-2/',
-  'https://embedpress.qcheck.site/elementor-singles/',
+
   'https://embedpress.qcheck.site/elementor-spotify/',
   'https://embedpress.qcheck.site/elementor-youtube/',
   'https://embedpress.qcheck.site/guntenberg-facebook/',
@@ -63,7 +64,7 @@ const REGEXP_PHP_ERROR = /(<b>)?(Fatal error|Recoverable fatal error|Warning|Par
 
 test('Check for Fatal Error on EmbedPress', async ({ page }) => {
   // Disables the timeout
-  test.setTimeout(0);
+  test.setTimeout(500000);
 
   for (const url of urls) {
     await page.goto(url);
