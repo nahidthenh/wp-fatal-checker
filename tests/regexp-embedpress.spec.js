@@ -1,6 +1,5 @@
 const { test, expect } = require('@playwright/test');
 const urls = [
-  // 'https://embedpress.qcheck.site/elementor-singles/',
   'https://embedpress.qcheck.site/',
   'https://embedpress.qcheck.site/1-youtube-singleee/',
   'https://embedpress.qcheck.site/classic-gumroad/',
@@ -32,7 +31,7 @@ const urls = [
   'https://embedpress.qcheck.site/elementor-facebook/',
   'https://embedpress.qcheck.site/elementor-google/',
   'https://embedpress.qcheck.site/elementor-pdf-2/',
-
+  'https://embedpress.qcheck.site/elementor-singles/',
   'https://embedpress.qcheck.site/elementor-spotify/',
   'https://embedpress.qcheck.site/elementor-youtube/',
   'https://embedpress.qcheck.site/guntenberg-facebook/',
@@ -60,14 +59,15 @@ const urls = [
   // Add more URLs to this list
 ];
 
-const REGEXP_PHP_ERROR = /(<b>)?(Fatal error|Recoverable fatal error|Warning|Parse error|Notice|Strict Standards|Deprecated|Unknown error)(<\/b>)?: (.*?) in (.*?) on line (<b>)?\d+(<\/b>)?/;
-
 test('Check for Fatal Error on EmbedPress', async ({ page }) => {
   // Disables the timeout
-  test.setTimeout(500000);
+  test.setTimeout(0);
 
   for (const url of urls) {
     await page.goto(url);
+    // Check for visible fatal error messages
+    const fatalError1 = await page.getByText('Fatal error:').isVisible().catch(() => false);
+    const fatalError2 = await page.getByText('There has been a critical error on this website.').isVisible().catch(() => false);
 
     // Get the page content
     const pageContent = await page.content();
@@ -75,7 +75,7 @@ test('Check for Fatal Error on EmbedPress', async ({ page }) => {
     // Check for the fatal error message using the regex
     const matches = pageContent.match(REGEXP_PHP_ERROR);
 
-    if (matches) {
+    if (matches || fatalError1 || fatalError2) {
       console.log(`❌ Fatal Error - ${url}`);
     } else {
       console.log(`✅ Page loaded properly - ${url}`);
