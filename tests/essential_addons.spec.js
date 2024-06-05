@@ -1,7 +1,7 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('@wordpress/e2e-test-utils-playwright');
 const { urls } = require('../utils/urls/essential_addons');
 
-test('Essential Addons PHP Error Check', async ({ page }) => {
+test('Check for Fatal Error on EmbedPress', async ({ page }) => {
     // Disables the timeout
     test.setTimeout(0);
     // Regular expression to match PHP error messages
@@ -19,9 +19,10 @@ test('Essential Addons PHP Error Check', async ({ page }) => {
         const matches = pageContent.match(REGEXP_PHP_ERROR);
 
         if (matches || fatalError1 || fatalError2) {
-            console.log(`❌ Found Error - ${url}`);
+            console.log(`❌ Found Error - ${matches} On - ${url}`);
         } else {
             console.log(`✅ Page loaded properly - ${url}`);
         }
     }
 });
+

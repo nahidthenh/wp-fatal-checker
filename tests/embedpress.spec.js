@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('@wordpress/e2e-test-utils-playwright');
 const { urls } = require('../utils/urls/embedpress');
 
 
@@ -20,7 +20,7 @@ test('Check for Fatal Error on EmbedPress', async ({ page }) => {
     const matches = pageContent.match(REGEXP_PHP_ERROR);
 
     if (matches || fatalError1 || fatalError2) {
-      console.log(`❌ Found Error - ${url}`);
+      console.log(`❌ Found Error - ${matches} On - ${url}`);
     } else {
       console.log(`✅ Page loaded properly - ${url}`);
     }
