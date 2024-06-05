@@ -19,3 +19,17 @@ npm install
 npx playwright test
 ```
 
+### Step 3.1 - Running a Specific Test
+```bash
+npx playwright test .\tests\embedpress.spec.js
+```
+
+### Step 3.2 - Running a Specific Test on a Specific Browser
+```bash
+npx playwright test .\tests\embedpress.spec.js --project firefox
+```
+
+### Step 3.3 - Running a Specific Test on a Specific Browser with headed mode
+```bash
+npx playwright test .\tests\embedpress.spec.js --project firefox --headed
+```
