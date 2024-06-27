@@ -1,5 +1,10 @@
 const urls = [
-    'https://embedpress.qcheck.site/',
+    'https://embedpress.qcheck.site/popular-gutenberg/',
+    'https://embedpress.qcheck.site/popular-elementor-all',
+    'https://embedpress.qcheck.site/popular-classic-all',
+    'https://embedpress.qcheck.site/elementor-google-2',
+    'https://embedpress.qcheck.site/gutenberg-google-2',
+    'https://embedpress.qcheck.site/classic-google-2',
     'https://embedpress.qcheck.site/1-youtube-singleee/',
     'https://embedpress.qcheck.site/classic-gumroad/',
     'https://embedpress.qcheck.site/classic-meetup/',
