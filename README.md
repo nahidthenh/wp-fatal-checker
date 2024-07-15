@@ -11,7 +11,7 @@ git clone git@github.com:nahidthenh/wp-fatal-checker.git
 ```
 ### Step 2 - Install NPM
 ```bash
-npm install
+npm install -f
 
 ```
 ### Step 3 - Running the Script
@@ -21,15 +21,15 @@ npx playwright test
 
 ### Step 3.1 - Running a Specific Test
 ```bash
-npx playwright test .\tests\embedpress.spec.js
+npx playwright test tests/essential_addons.spec.js
 ```
 
 ### Step 3.2 - Running a Specific Test on a Specific Browser
 ```bash
-npx playwright test .\tests\embedpress.spec.js --project firefox
+npx playwright test tests/essential_addons.spec.js --project chromium
 ```
 
 ### Step 3.3 - Running a Specific Test on a Specific Browser with headed mode
 ```bash
-npx playwright test .\tests\embedpress.spec.js --project firefox --headed
+npx playwright test tests/essential_addons.spec.js --project chromium --headed
 ```
