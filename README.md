@@ -4,32 +4,15 @@ In WordPress, we continuously update our plugin. As a Junior Software Test Engin
 
 ## How to Use it?
 
-### Step 1 - Clone this repo
-```bash
-git clone git@github.com:nahidthenh/wp-fatal-checker.git
-
+To Install playwright:
 ```
-### Step 2 - Install NPM
-```bash
-npm install -f
-
+npm init playwright@latest
 ```
-### Step 3 - Running the Script
-```bash
-npx playwright test
+To update playwright:
 ```
-
-### Step 3.1 - Running a Specific Test
-```bash
-npx playwright test tests/essential_addons.spec.js
+npm install -D @playwright/test@latest
 ```
-
-### Step 3.2 - Running a Specific Test on a Specific Browser
-```bash
-npx playwright test tests/essential_addons.spec.js --project chromium
+Usually after Playwright update, browsers need to be updated with command:
 ```
-
-### Step 3.3 - Running a Specific Test on a Specific Browser with headed mode
-```bash
-npx playwright test tests/essential_addons.spec.js --project chromium --headed
+npx playwright install --with-deps
 ```
